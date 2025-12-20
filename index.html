@@ -209,6 +209,7 @@
                     .te-token { 
                         padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 4px; font-size: 12px; color: #cbd5e1;
                         border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;
+                        line-height: 1.6;
                     }
                     .te-token:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); }
                     .te-token.active { background: rgba(217, 70, 239, 0.15); border-color: #d946ef; color: #fff; box-shadow: 0 0 15px rgba(217, 70, 239, 0.1); }
@@ -425,6 +426,7 @@
 
     <!-- Experience Cards (Pricing Style) -->
     <section id="experience" class="experience-section">
+        <div class="card-overlay" id="card-overlay" onclick="closeAllCards()"></div>
         <div class="container">
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
                 <h2>From Zero to Production.</h2>
@@ -433,7 +435,7 @@
 
             <div class="exp-grid">
                 <!-- Card 1 -->
-                <div class="exp-card">
+                <div class="exp-card" id="card-vanco">
                     <div class="role-title">Data Scientist</div>
                     <div class="company-name">Vanco AI <span style="font-size: 12px; margin-left: auto;">2023 - 2024</span></div>
                     <p style="font-size: 14px; margin-bottom: 24px;">Laid the foundation with robust ML pipelines and deployments.</p>
@@ -444,11 +446,11 @@
                         <li>Improved EEG classification accuracy by 15%.</li>
                     </ul>
                     
-                    <a href="#" class="btn-secondary" style="text-align: center;">View Details</a>
+                    <a href="javascript:void(0)" class="btn-secondary" onclick="focusCard('card-vanco')" style="text-align: center;">View Details</a>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="exp-card">
+                <div class="exp-card" id="card-amplelogic">
                     <div class="role-title">AI Engineer</div>
                     <div class="company-name">AmpleLogic <span style="font-size: 12px; margin-left: auto;">2024 - 2025</span></div>
                     <p style="font-size: 14px; margin-bottom: 24px;">Scaled document processing for highly regulated industries.</p>
@@ -459,22 +461,22 @@
                         <li>Optimized inference throughput by 30% with Async I/O.</li>
                     </ul>
                     
-                    <a href="#" class="btn-secondary" style="text-align: center;">View Details</a>
+                    <a href="javascript:void(0)" class="btn-secondary" onclick="focusCard('card-amplelogic')" style="text-align: center;">View Details</a>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="exp-card featured">
+                <div class="exp-card featured" id="card-hivel">
                     <div class="role-title">Applied AI Engineer</div>
                     <div class="company-name">Hivel AI <span style="font-size: 12px; margin-left: auto;">Present</span></div>
                     <p style="font-size: 14px; margin-bottom: 24px;">Architecting the future of enterprise Multi-Agent platforms and autonomous workflows.</p>
                     
                     <ul class="exp-details">
-                        <li>Designing 'Lucy', a unified platform for multi-agent orchestration.</li>
+                        <li>Built 'Lucy', a scalable multi-agent orchestration chatbot.</li>
                         <li>Building streamlined AI systems that automate complex enterprise decision-making processes.</li>
                         <li>Optimizing distributed inference infrastructure to ensure high availability and responsiveness.</li>
                     </ul>
                     
-                    <a href="#" class="btn-primary" style="text-align: center;">View Work</a>
+                    <a href="javascript:void(0)" class="btn-primary" onclick="focusCard('card-hivel')" style="text-align: center;">View Work</a>
                 </div>
             </div>
         </div>
@@ -544,6 +546,25 @@
                 if(type === 'system') img.src = 'assets/img/project/DL.webp';
                 img.style.opacity = 1; // Fade in
             }, 300);
+        }
+
+        function focusCard(cardId) {
+            const card = document.getElementById(cardId);
+            const overlay = document.getElementById('card-overlay');
+            
+            // Close any existing focused cards
+            document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('focused'));
+            
+            card.classList.add('focused');
+            overlay.classList.add('active');
+            
+            // Scroll to card if it's not fully visible
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function closeAllCards() {
+            document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('focused'));
+            document.getElementById('card-overlay').classList.remove('active');
         }
     </script>
 
