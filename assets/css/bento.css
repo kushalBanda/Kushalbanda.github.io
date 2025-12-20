@@ -1,0 +1,224 @@
+:root {
+    /* Attio-inspired Palette */
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --secondary-text: #666666;
+    --accent-color: #000000; /* Primary actions are often black */
+    --link-color: #3e4e5e;
+    
+    /* Borders & Shadows */
+    --card-border: 1px solid #e5e5e5;
+    --card-radius: 12px;
+    --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0f0f0f;
+        --card-bg: #1a1a1a;
+        --text-color: #ffffff;
+        --secondary-text: #a1a1a1;
+        --accent-color: #ffffff;
+        --link-color: #e5e5e5;
+        --card-border: 1px solid #333333;
+        --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        --hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+    display: none !important;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.bento-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: 24px;
+}
+
+.bento-card {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.bento-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+    z-index: 10;
+}
+
+/* Card Sizes */
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.row-span-2 { grid-row: span 2; }
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .bento-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .span-3, .span-4 { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+    .bento-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Typography */
+h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.03em;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--secondary-text);
+    margin: 0 0 16px 0;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Circle */
+    object-fit: cover;
+    margin-bottom: 0;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Tags - Attio style: Pastel pills */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto; /* Push to bottom if space permits */
+}
+
+.tag {
+    background: #f4f5f7;
+    padding: 4px 10px;
+    border-radius: 6px; /* Slightly squarer than pill */
+    font-size: 13px;
+    color: var(--text-color);
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,0.03);
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Random pastel accents for tags (optional refinement could be specific classes) */
+.tag:nth-child(3n+1) { background: #eef2ff; color: #3538cd; border-color: #e0e7ff; } /* Blueish */
+.tag:nth-child(3n+2) { background: #ecfdf5; color: #047857; border-color: #d1fae5; } /* Greenish */
+.tag:nth-child(3n+3) { background: #fdf2f8; color: #be185d; border-color: #fce7f3; } /* Pinkish */
+
+@media (prefers-color-scheme: dark) {
+    .tag { background: #2a2a2a; border-color: #333; color: #e5e5e5; }
+    .tag:nth-child(3n+1) { background: #1e1b4b; color: #a5b4fc; border-color: #312e81; }
+    .tag:nth-child(3n+2) { background: #064e3b; color: #6ee7b7; border-color: #065f46; }
+    .tag:nth-child(3n+3) { background: #831843; color: #f9a8d4; border-color: #9d174d; }
+}
+
+/* Specific Card Overrides */
+.card-intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-intro .content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+/* Feature Cards (Medium, VSCode) - Keeping them distinct but cleaner */
+.card-medium {
+    background: #fff;
+    border: var(--card-border);
+}
+.card-medium i { color: #000; }
+.card-medium h2, .card-medium p { color: var(--text-color) !important; }
+.card-medium p { color: var(--secondary-text) !important; }
+
+.card-vscode {
+    background: #fff;
+    border: var(--card-border);
+}
+.card-vscode i { color: #007acc; } /* Keep brand color for icon */
+.card-vscode h2, .card-vscode p { color: var(--text-color) !important; }
+.card-vscode p { color: var(--secondary-text) !important; }
+
+
+/* Icons */
+.bento-card i {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+/* Connect Card Links */
+.bento-card a i {
+    font-size: 24px;
+    color: var(--secondary-text);
+    transition: color 0.2s;
+}
+.bento-card a:hover i {
+    color: var(--text-color);
+}
