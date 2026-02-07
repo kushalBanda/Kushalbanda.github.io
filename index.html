@@ -1,572 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Kushal Banda | AI Engineer</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Kushal Banda | AI Engineer</title>
+  <meta name="description" content="Kushal Banda portfolio. AI engineering, multi-agent systems, RAG, and production infrastructure.">
 
-    <!-- Main CSS -->
-    <link href="assets/css/attio.css" rel="stylesheet">
-    <style>
-        .hivel-logo-pill {
-            height: 18px;
-            vertical-align: middle;
-            margin-right: 6px;
-            border-radius: 4px;
-        }
-        .highlight-section {
-            padding: 80px 0;
-            background: #fff;
-        }
-        .highlight-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        .highlight-card {
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .highlight-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .highlight-card i {
-            font-size: 40px;
-            color: var(--accent);
-        }
-        .highlight-card h3 {
-            font-size: 24px;
-            margin: 0;
-        }
-        .highlight-card p {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-        .tag-new {
-            background: #000;
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            vertical-align: middle;
-            margin-left: 8px;
-        }
-        /* Logo overrides */
-        .logo-item img {
-            height: 24px;
-            width: auto;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s;
-        }
-        .logo-item:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link href="assets/css/miyoko-rebuild.css" rel="stylesheet">
 </head>
-<body>
+<body class="miyoko-page">
+  <div class="bg-texture" aria-hidden="true"></div>
+  <div class="aura-edge" id="auraEdge" aria-hidden="true"></div>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
 
-    <!-- Header -->
-    <header>
-        <div class="container nav-content">
-            <a href="#" class="logo">
-                <i class="ri-code-s-slash-fill"></i> Kushal Banda
-            </a>
-            <nav class="nav-links">
-                <a href="#highlights">Highlights</a>
-                <a href="#experience">Experience</a>
-                <a href="#expertise">Expertise</a>
-                <a href="mailto:kushalbanda265@gmail.com" class="nav-btn">Get in touch</a>
-            </nav>
-        </div>
-    </header>
+  <header class="top-controls" aria-label="Top controls">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+      <span class="track">
+        <span class="thumb"></span>
+      </span>
+      <span class="label" id="themeLabel">Light</span>
+    </button>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <span class="hero-pill">
-                <img src="https://www.softwareworld.co/assets/software/logo/hivel.jpg" class="hivel-logo-pill" alt="Hivel Logo">
-                Now building at Hivel AI
-            </span>
-            <h1>The AI Engineer that scales<br>your intelligent systems.</h1>
-            <p>I build enterprise-grade Multi-Agent Systems, optimize RAG pipelines, and architect distributed inference infrastructure that scales from zero to production.</p>
-            
-            <div class="hero-btns">
-                <a href="#experience" class="btn-primary">View Work</a>
-            </div>
+  <main class="layout" id="humanView">
+    <section class="hero section" id="hero">
+      <button id="auraTrigger" class="photo-wrap" aria-label="Toggle profile aura">
+        <img src="assets/media/miyoko/me.png" alt="Kushal Banda" class="hero-photo" loading="eager">
+      </button>
+      <h1 id="profileName">Kushal Banda</h1>
+      <p class="meta-row">
+        <span id="profilePronunciation">/ku-shaal baan-da/</span>
+        <span class="dot">•</span>
+        <span>AI Engineer</span>
+        <span class="dot">•</span>
+        <span><span id="liveClock">00:00:00</span> <strong>IST</strong></span>
+        <button id="lofiToggle" class="lofi-icon-btn" aria-label="Toggle lofi audio" title="Toggle lofi">♪</button>
+      </p>
 
-            <!-- Hero Visual: Transformer Explainer Replica -->
-            <div class="hero-visual">
-                <div class="code-window" style="padding: 0; background: #0f111a; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); font-family: 'Inter', sans-serif;">
-                    
-                    <!-- Control Bar -->
-                    <div style="padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; background: #1a1d2d;">
-                        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: #fff;">TRANSFORMER</span>
-                        
-                        <div style="display: flex; align-items: center; gap: 20px;">
-                            <!-- Temperature Control -->
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <label style="font-size: 10px; color: #94a3b8; font-weight: 600;">TEMPERATURE</label>
-                                <input type="range" id="temp-slider" min="0.1" max="2.0" step="0.1" value="0.7" style="width: 80px; accent-color: #d946ef;">
-                                <span id="temp-display" style="font-size: 10px; color: #d946ef; font-family: monospace; width: 24px;">0.7</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Main Grid -->
-                    <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; height: 340px;">
-                        
-                        <!-- Column 1: Input -->
-                        <div style="padding: 20px; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 10px;">
-                            <div class="te-label">INPUT SEQUENCE</div>
-                            <div class="te-token">The</div>
-                            <div class="te-token">AI</div>
-                            <div class="te-token">Engineer</div>
-                            <div class="te-token">that</div>
-                            <div class="te-token active">Scales</div>
-                        </div>
-
-                        <!-- Column 2: Model View -->
-                        <div style="padding: 10px; display: flex; flex-direction: column; justify-content: flex-start; position: relative; border-right: 1px solid rgba(255,255,255,0.06);">
-                            
-                            <!-- Block Visuals -->
-                            <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; width: 100%; margin-top: 5px;">
-                                
-                                <!-- Embedding -->
-                                <div class="te-block small" style="border-color: rgba(255,255,255,0.1);">
-                                    <span style="font-size: 9px; color: #94a3b8;">Token Embedding + Positional</span>
-                                </div>
-
-                                <div style="color: #475569; font-size: 10px;">↓</div>
-
-                                <!-- Attention Block -->
-                                <div class="te-block">
-                                    <div class="te-block-header" style="background: rgba(217, 70, 239, 0.2); color: #f0abfc;">Multi-Head Attention</div>
-                                    <div id="attn-heads" style="display: flex; gap: 3px; height: 12px; margin-top: 6px; justify-content: center; align-items: flex-end;">
-                                        <!-- Dynamic bars generated by JS -->
-                                        <div class="attn-bar" style="width: 6px; height: 40%; background: #d946ef; border-radius: 1px;"></div>
-                                        <div class="attn-bar" style="width: 6px; height: 80%; background: #d946ef; border-radius: 1px;"></div>
-                                        <div class="attn-bar" style="width: 6px; height: 30%; background: #d946ef; border-radius: 1px;"></div>
-                                        <div class="attn-bar" style="width: 6px; height: 90%; background: #d946ef; border-radius: 1px;"></div>
-                                        <div class="attn-bar" style="width: 6px; height: 50%; background: #d946ef; border-radius: 1px;"></div>
-                                    </div>
-                                </div>
-                                
-                                <div style="color: #475569; font-size: 10px;">↓</div>
-
-                                <!-- MLP Block -->
-                                <div class="te-block">
-                                    <div class="te-block-header" style="background: rgba(59, 130, 246, 0.2); color: #93c5fd;">Feed Forward</div>
-                                    <div style="height: 4px; background: rgba(59, 130, 246, 0.4); margin-top: 8px; border-radius: 2px;"></div>
-                                </div>
-
-                                <div style="color: #475569; font-size: 10px;">↓</div>
-
-                                <!-- Norm -->
-                                <div class="te-block small">
-                                    <span style="font-size: 9px; color: #94a3b8;">Layer Normalization</span>
-                                </div>
-
-                                <div style="color: #475569; font-size: 10px;">↓</div>
-
-                                <!-- Projection -->
-                                <div class="te-block small" style="border-color: rgba(99, 102, 241, 0.3);">
-                                    <span style="font-size: 9px; color: #a5b4fc;">Output Projection</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Column 3: Output Softmax -->
-                        <div style="padding: 20px; display: flex; flex-direction: column; gap: 15px;">
-                            <div class="te-label">NEXT TOKEN PROBABILITY</div>
-                            <div id="softmax-container" style="display: flex; flex-direction: column; gap: 8px;">
-                                <!-- Bars will be generated by JS -->
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <style>
-                    .te-label { font-size: 9px; color: #64748b; font-weight: 700; letter-spacing: 0.8px; margin-bottom: 6px; }
-                    .te-token { 
-                        padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 4px; font-size: 12px; color: #cbd5e1;
-                        border: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;
-                        line-height: 1.6;
-                    }
-                    .te-token:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); }
-                    .te-token.active { background: rgba(217, 70, 239, 0.15); border-color: #d946ef; color: #fff; box-shadow: 0 0 15px rgba(217, 70, 239, 0.1); }
-                    
-                    .te-block {
-                        width: 80%; padding: 10px; background: #1e293b; border-radius: 6px; border: 1px solid #334155; text-align: center;
-                    }
-                    .te-block.small { width: 60%; padding: 6px; }
-                    .te-block-header { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 3px; display: inline-block; }
-
-                    /* Probability Bars */
-                    .prob-row { display: flex; align-items: center; gap: 10px; font-size: 11px; }
-                    .prob-text { width: 50px; text-align: right; color: #e2e8f0; font-weight: 500; }
-                    .prob-bar-container { flex: 1; height: 18px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; position: relative; }
-                    .prob-bar { height: 100%; background: linear-gradient(90deg, #d946ef, #8b5cf6); transition: width 0.3s ease; }
-                    .prob-val { position: absolute; right: 4px; top: 2px; font-size: 9px; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
-                </style>
-
-                <script>
-                    (function() {
-                        const slider = document.getElementById('temp-slider');
-                        const display = document.getElementById('temp-display');
-                        const container = document.getElementById('softmax-container');
-                        const inputTokens = document.querySelectorAll('.te-token');
-                        const attnBars = document.querySelectorAll('.attn-bar');
-
-                        // Data: Logits for each step in the sequence
-                        // Context: "The" -> "AI" -> "Engineer" -> "that" -> "Scales"
-                        const sequenceData = [
-                            { // Step 0: "The" -> Predicts Next
-                                target: "AI",
-                                logits: [ {t:"AI", v:6.5}, {t:"Future", v:4.2}, {t:"World", v:3.1}, {t:"First", v:2.0}, {t:"Data", v:1.5} ]
-                            },
-                            { // Step 1: "AI" -> Predicts Next
-                                target: "Engineer",
-                                logits: [ {t:"Engineer", v:5.8}, {t:"Model", v:4.9}, {t:"Agent", v:3.5}, {t:"Tool", v:2.1}, {t:"System", v:1.8} ]
-                            },
-                            { // Step 2: "Engineer" -> Predicts Next
-                                target: "that",
-                                logits: [ {t:"that", v:5.5}, {t:"who", v:4.8}, {t:"in", v:2.5}, {t:"for", v:2.2}, {t:"building", v:1.5} ]
-                            },
-                            { // Step 3: "that" -> Predicts Next
-                                target: "Scales",
-                                logits: [ {t:"Scales", v:6.2}, {t:"Builds", v:5.1}, {t:"Runs", v:3.8}, {t:"Knows", v:2.4}, {t:"Codes", v:1.9} ]
-                            },
-                            { // Step 4: "Scales" -> Predicts Next
-                                target: "Systems",
-                                logits: [ {t:"Systems", v:6.0}, {t:"Models", v:4.5}, {t:"Infra", v:3.8}, {t:"Code", v:2.5}, {t:"Data", v:1.5} ]
-                            }
-                        ];
-
-                        let activeIndex = 4; // Default to last token ("Scales")
-
-                        function softmax(logits, temp) {
-                            const exp = logits.map(l => Math.exp(l / temp));
-                            const sum = exp.reduce((a, b) => a + b, 0);
-                            return exp.map(e => e / sum);
-                        }
-
-                        function render() {
-                            const temp = parseFloat(slider.value);
-                            display.innerText = temp;
-
-                            // 1. Update Input Token Styles
-                            inputTokens.forEach((tok, idx) => {
-                                if (idx === activeIndex) tok.classList.add('active');
-                                else tok.classList.remove('active');
-                            });
-                            
-                            // 2. Animate Model Internals (Simulate Attention)
-                            attnBars.forEach(bar => {
-                                // Randomize attention pattern for "live" feel
-                                const h = Math.floor(Math.random() * 70) + 30; // 30% to 100%
-                                const o = (Math.random() * 0.6) + 0.4; // 0.4 to 1.0 opacity
-                                bar.style.height = `${h}%`;
-                                bar.style.opacity = o;
-                            });
-
-                            // 3. Calculate Probabilities for Active Step
-                            const currentData = sequenceData[activeIndex];
-                            const probs = softmax(currentData.logits.map(d => d.v), temp);
-
-                            // 4. Render Bars
-                            container.innerHTML = '';
-                            currentData.logits.forEach((item, i) => {
-                                const p = probs[i];
-                                const percent = (p * 100).toFixed(1);
-                                
-                                const row = document.createElement('div');
-                                row.className = 'prob-row';
-                                row.innerHTML = `
-                                    <div class="prob-text">${item.t}</div>
-                                    <div class="prob-bar-container">
-                                        <div class="prob-bar" style="width: ${percent}%;"></div>
-                                        <span class="prob-val">${percent}%</span>
-                                    </div>
-                                `;
-                                container.appendChild(row);
-                            });
-                        }
-
-                        // Event Listeners
-                        slider.addEventListener('input', render);
-                        
-                        inputTokens.forEach((tok, idx) => {
-                            tok.addEventListener('click', () => {
-                                activeIndex = idx;
-                                render();
-                            });
-                        });
-                        
-                        // Initial render
-                        render();
-                    })();
-                </script>
-            </div>
-        </div>
+      <div class="about-copy" id="aboutIntro"></div>
     </section>
 
-    <!-- Highlights Section (Medium & VS Code) -->
-    <section id="highlights" class="highlight-section">
-        <div class="container">
-            <div class="section-header" style="max-width: 100%; text-align: center; margin-bottom: 80px;">
-                <h2>Ecosystem & Contributions</h2>
-                <p>Sharing knowledge through writing and building tools for the developer community.</p>
-            </div>
-            
-            <div class="highlight-grid">
-                <!-- VS Code Extension -->
-                <div class="highlight-card">
-                    <i class="ri-visual-studio-fill"></i>
-                    <div>
-                        <h3>Graphy <span class="tag-new">Latest</span></h3>
-                        <p>A VS Code extension designed to visualize your code architecture and logic flow in real-time. Simplify complex codebases with interactive maps.</p>
-                    </div>
-                    <a href="https://marketplace.visualstudio.com/items?itemName=KushalBanda.graphy" target="_blank" class="btn-secondary" style="margin-top: auto; text-align: center;">Install from Marketplace</a>
-                </div>
-
-                <!-- Medium Articles -->
-                <div class="highlight-card">
-                    <i class="ri-medium-fill"></i>
-                    <div>
-                        <h3>Medium Publications</h3>
-                        <p>Deep dives into Deep Learning, GenAI patterns, and distributed systems. I write about practical AI engineering and the future of LLM orchestration.</p>
-                    </div>
-                    <a href="https://medium.com/@kushalbanda" target="_blank" class="btn-secondary" style="margin-top: auto; text-align: center;">Read my Articles</a>
-                </div>
-            </div>
-        </div>
+    <section class="section" id="experienceSection">
+      <h2>Experience</h2>
+      <div id="experienceList" class="stack-list"></div>
     </section>
 
-    <!-- Logo Ticker -->
-    <div class="logo-ticker">
-        <div class="container">
-            <p>ENGINEERING EXPERIENCE WITH</p>
-            <div class="logos" style="display: flex; justify-content: center; gap: 60px; align-items: center; flex-wrap: nowrap;">
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" style="height: 35px; width: auto;">
-                </div>
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" style="height: 40px; width: auto;">
-                </div>
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*-PlFCd_VBcALKReO3ZaOEg.png" alt="LangChain" style="height: 120px; width: auto;">
-                </div>
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="height: 40px; width: auto;">
-                </div>
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://www.vectorlogo.zone/logos/docker/docker-official.svg" alt="Docker" style="height: 40px; width: auto;">
-                </div>
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://storage-us-gcs.bfldr.com/7t4m4vpmrnpr8zt9tc39k9tt/v/1197412912/original/Logo_Black_300dpi_FNL.png?Expires=1766297521&KeyName=gcs-bfldr-prod&Signature=JbCowaKjROtl-kS5qa5raVRVuno=" alt="ClickHouse" style="height: 25px; width: auto;">
-                </div>
-                <div class="logo-item" style="display: flex; align-items: center; justify-content: center;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL" style="height: 35px; width: auto;">
-                </div>
-            </div>
+    <section class="section" id="journeySection">
+      <h2 id="journeyTitle">Product Journey</h2>
+      <article class="panel collapsible" data-collapsible>
+        <div class="panel-content" id="journeyContent"></div>
+        <button class="collapse-toggle" data-toggle="journey">View More</button>
+      </article>
+    </section>
+
+    <section class="section" id="educationSection">
+      <h2>Education</h2>
+      <div id="educationList" class="stack-list"></div>
+    </section>
+
+    <section class="section" id="techSection">
+      <h2>Tech Stack</h2>
+      <div class="tech-header-row">
+        <p class="section-intro">Core tooling I use to ship AI systems from prototype to production.</p>
+        <button id="techExpand" class="tech-toggle-btn" aria-expanded="false">
+          <span id="techExpandLabel">View Full Stack</span>
+          <span class="chevron-icon" id="techChevron">&#8964;</span>
+        </button>
+      </div>
+      <div id="techPreview" class="pill-marquee"></div>
+      <div id="techGrid" class="tech-grid hidden"></div>
+    </section>
+
+    <section class="section" id="featuredSection">
+      <h2>Featured Work</h2>
+      <div class="panel media-card">
+        <img id="featuredImage" src="assets/img/project/DL.webp" alt="Featured project">
+        <div>
+          <h3 id="featuredTitle">Deep Learning Project</h3>
+          <p id="featuredDescription"></p>
+          <a id="featuredLink" class="text-link" href="projects/dl.html">Open Project</a>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="writingSection">
+      <h2>Writings & Publications</h2>
+      <p class="section-intro">Insights, breakthroughs, and trends in artificial intelligence, helping you stay ahead in the fast-evolving world of AI.</p>
+      <a id="writingLink" class="text-link" href="https://medium.com/@kushalbanda" target="_blank" rel="noopener noreferrer">Read on Medium</a>
+    </section>
+
+    <section class="section" id="aboutMeSection">
+      <h2>Thing About Me</h2>
+      <div class="panel two-col">
+        <div id="thingAboutMe"></div>
+        <div class="casual-image-wrap">
+          <img src="assets/media/miyoko/casual.png" alt="Kushal Banda casual" class="casual-photo">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contactSection">
+      <h2>Get In Touch</h2>
+      <p id="contactCopy" class="section-intro"></p>
+      <a id="contactEmail" class="text-link" href="mailto:kushalbanda265@gmail.com">kushalbanda265@gmail.com</a>
+    </section>
+
+    <section class="section" id="pomodoroSection">
+      <h2>Pomodoro Timer</h2>
+      <p class="section-intro">A quick focus timer before you leave the page.</p>
+      <div class="panel pomodoro">
+        <div class="timer-display" id="pomodoroTime">25:00</div>
+        <div class="timer-meta" id="pomodoroMode">Focus Session</div>
+        <div class="timer-actions">
+          <button id="timerStartPause" class="icon-btn" aria-label="Start timer">Start</button>
+          <button id="timerReset" class="text-btn" aria-label="Reset timer">Reset</button>
+          <button id="timerModeWork" class="mini-btn active">25m</button>
+          <button id="timerModeBreak" class="mini-btn">5m</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main class="layout hidden" id="agentView" aria-hidden="true">
+    <section class="section">
+      <h2>Agent Mode</h2>
+      <pre id="agentText" class="agent-pre"></pre>
+    </section>
+  </main>
+
+  <nav class="dock" aria-label="Quick links">
+    <button id="modeToggle" class="mode-switch" role="switch" aria-checked="false" title="Toggle human/agent mode">
+      <span class="mode-thumb"></span>
+      <span class="mode-label">Human</span>
+    </button>
+    <button id="qrTrigger" class="dock-icon" aria-label="Show QR">QR</button>
+    <a class="dock-icon" id="githubLink" href="https://github.com/kushalBanda" target="_blank" rel="noopener noreferrer">GH</a>
+    <a class="dock-icon" id="linkedinLink" href="https://www.linkedin.com/in/kushalbanda/" target="_blank" rel="noopener noreferrer">IN</a>
+    <a class="dock-icon" id="mediumLink" href="https://medium.com/@kushalbanda" target="_blank" rel="noopener noreferrer">ME</a>
+    <a class="dock-icon" id="graphyLink" href="https://marketplace.visualstudio.com/items?itemName=KushalBanda.graphy" target="_blank" rel="noopener noreferrer">VS</a>
+    <a class="dock-icon" id="mailLink" href="mailto:kushalbanda265@gmail.com">@</a>
+  </nav>
+
+  <div id="qrModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+    <div class="modal-overlay" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-close" id="qrClose" aria-label="Close">Close</button>
+      <h3 id="qrTitle">Scan to Open</h3>
+      <div class="qr-box">
+        <img id="qrImage" alt="Portfolio QR code" src="">
+      </div>
+      <a id="qrTarget" href="https://kushalbanda.github.io/" target="_blank" rel="noopener noreferrer" class="text-link">Open link</a>
     </div>
+  </div>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="features-section">
-        <div class="container">
-            <div class="feature-split">
-                <div class="feature-list">
-                    <div class="section-header">
-                        <h2>The tools for your<br>AI infrastructure.</h2>
-                        <p>I build specialized stacks designed for autonomous agents, high-accuracy regulatory RAG, and ultra-low latency inference at scale.</p>
-                    </div>
+  <audio id="lofiAudio" src="assets/media/miyoko/lofi.mp3" preload="none" loop></audio>
+  <audio id="alarmAudio" src="assets/media/miyoko/jingle.mp3" preload="none" loop></audio>
 
-                    <div class="feature-item active" onclick="toggleFeature(this, 'agent')">
-                        <h3>Multi-Agent Orchestration <i class="ri-arrow-down-s-line"></i></h3>
-                        <p>I design and deploy sophisticated Multi-Agent Systems (MAS) that go beyond simple chat. My architectures include hierarchical planning, automated task decomposition, and cross-agent consensus protocols to ensure complex workflows are executed with 99.5% reliability.</p>
-                    </div>
-
-                    <div class="feature-item" onclick="toggleFeature(this, 'rag')">
-                        <h3>Enterprise-Grade RAG <i class="ri-arrow-down-s-line"></i></h3>
-                        <p>Production RAG is about precision. I implement advanced retrieval strategies including hybrid search, multi-stage re-ranking, and dynamic chunking tailored for complex regulatory and technical documentation, achieving 95%+ extraction accuracy.</p>
-                    </div>
-
-                    <div class="feature-item" onclick="toggleFeature(this, 'system')">
-                        <h3>High-Concurrency Systems <i class="ri-arrow-down-s-line"></i></h3>
-                        <p>Scale without compromise. I architect distributed inference engines using WebSockets and ClickHouse for real-time analytics. My systems are optimized for sub-200ms p95 latency even under heavy concurrent loads of 500+ users.</p>
-                    </div>
-                </div>
-
-                <div class="feature-visual">
-                    <img src="https://blog.langchain.com/content/images/2025/07/Screenshot-2025-07-30-at-9.08.32-AM.png" alt="AI System Visual" id="feature-img" style="max-width: 80%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: opacity 0.3s ease-in-out;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Cards (Pricing Style) -->
-    <section id="experience" class="experience-section">
-        <div class="card-overlay" id="card-overlay" onclick="closeAllCards()"></div>
-        <div class="container">
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <h2>From Zero to Production.</h2>
-                <p>Engineering scalable architecture for every stage of growth.</p>
-            </div>
-
-            <div class="exp-grid">
-                <!-- Card 1 -->
-                <div class="exp-card" id="card-vanco">
-                    <div class="role-title">Data Scientist</div>
-                    <div class="company-name">Vanco AI <span style="font-size: 12px; margin-left: auto;">2023 - 2024</span></div>
-                    <p style="font-size: 14px; margin-bottom: 24px;">Laid the foundation with robust ML pipelines and deployments.</p>
-                    
-                    <ul class="exp-details">
-                        <li>Deployed SAM-based segmentation models on AWS SageMaker.</li>
-                        <li>Auto-scaling endpoints handling 1000+ daily requests.</li>
-                        <li>Improved EEG classification accuracy by 15%.</li>
-                    </ul>
-                    
-                    <a href="javascript:void(0)" class="btn-secondary" onclick="focusCard('card-vanco')" style="text-align: center;">View Details</a>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="exp-card" id="card-amplelogic">
-                    <div class="role-title">AI Engineer</div>
-                    <div class="company-name">AmpleLogic <span style="font-size: 12px; margin-left: auto;">2024 - 2025</span></div>
-                    <p style="font-size: 14px; margin-bottom: 24px;">Scaled document processing for highly regulated industries.</p>
-                    
-                    <ul class="exp-details">
-                        <li>Architected RAG pipeline for 3,500+ FDA documents.</li>
-                        <li>95% extraction accuracy with custom chunking.</li>
-                        <li>Optimized inference throughput by 30% with Async I/O.</li>
-                    </ul>
-                    
-                    <a href="javascript:void(0)" class="btn-secondary" onclick="focusCard('card-amplelogic')" style="text-align: center;">View Details</a>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="exp-card featured" id="card-hivel">
-                    <div class="role-title">Applied AI Engineer</div>
-                    <div class="company-name">Hivel AI <span style="font-size: 12px; margin-left: auto;">Present</span></div>
-                    <p style="font-size: 14px; margin-bottom: 24px;">Architecting the future of enterprise Multi-Agent platforms and autonomous workflows.</p>
-                    
-                    <ul class="exp-details">
-                        <li>Built 'Lucy', a scalable multi-agent orchestration chatbot.</li>
-                        <li>Building streamlined AI systems that automate complex enterprise decision-making processes.</li>
-                        <li>Optimizing distributed inference infrastructure to ensure high availability and responsiveness.</li>
-                    </ul>
-                    
-                    <a href="javascript:void(0)" class="btn-primary" onclick="focusCard('card-hivel')" style="text-align: center;">View Work</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-cta">
-                <h2>Start building intelligent systems.</h2>
-                <a href="mailto:kushalbanda265@gmail.com" class="btn-primary">Contact Me</a>
-            </div>
-
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo" style="color: white; margin-bottom: 20px; display: inline-block;">
-                        <i class="ri-code-s-slash-fill"></i> Kushal Banda
-                    </a>
-                    <p style="color: #888; font-size: 14px;">Building the next generation of AI infrastructure.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Platform</h4>
-                    <ul>
-                        <li><a href="https://github.com/kushalBanda">GitHub</a></li>
-                        <li><a href="https://medium.com/@kushalbanda">Medium</a></li>
-                        <li><a href="https://marketplace.visualstudio.com/items?itemName=KushalBanda.graphy">VS Code Extension</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/in/kushalbanda/">LinkedIn</a></li>
-                        <li><a href="mailto:kushalbanda265@gmail.com">Email</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Location</h4>
-                    <ul>
-                        <li>Hyderabad, India</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 60px; pt: 20px; border-top: 1px solid #222; font-size: 13px; color: #666;">
-                &copy; 2025 Kushal Banda. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Interactive Script -->
-    <script>
-        function toggleFeature(element, type) {
-            // Remove active class from all items
-            document.querySelectorAll('.feature-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Add active class to clicked item
-            element.classList.add('active');
-
-            // Switch the image based on 'type'
-            const img = document.getElementById('feature-img');
-            img.style.opacity = 0; // Fade out
-            
-            setTimeout(() => {
-                if(type === 'agent') img.src = 'https://blog.langchain.com/content/images/2025/07/Screenshot-2025-07-30-at-9.08.32-AM.png';
-                if(type === 'rag') img.src = 'assets/img/project/skimlit.png';
-                if(type === 'system') img.src = 'assets/img/project/DL.webp';
-                img.style.opacity = 1; // Fade in
-            }, 300);
-        }
-
-        function focusCard(cardId) {
-            const card = document.getElementById(cardId);
-            const overlay = document.getElementById('card-overlay');
-            
-            // Close any existing focused cards
-            document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('focused'));
-            
-            card.classList.add('focused');
-            overlay.classList.add('active');
-            
-            // Scroll to card if it's not fully visible
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function closeAllCards() {
-            document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('focused'));
-            document.getElementById('card-overlay').classList.remove('active');
-        }
-    </script>
-
+  <script src="assets/js/miyoko-content.js"></script>
+  <script src="assets/js/miyoko-rebuild.js"></script>
 </body>
 </html>
